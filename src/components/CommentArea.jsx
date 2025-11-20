@@ -14,18 +14,16 @@ class CommentArea extends Component {
   fetchComments = async () => {
     this.setState({ isLoading: true, isError: false });
     try {
-      fetch(
-        "https://striveschool-api.herokuapp.com/api/put-your-endpoint-here/",
+      const response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/comments/" + this.props.asin,
         {
           headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTFmMjRkNDIzZTc0MDAwMTVmN2ZkZTIiLCJpYXQiOjE3NjM2NDg3MjQsImV4cCI6MTc2NDg1ODMyNH0.35HD2YDxOW-7lU-r_QHqaj73F5P7rNW6ELB-llZrPwU",
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTFmMjRkNDIzZTc0MDAwMTVmN2ZkZTIiLCJpYXQiOjE3NjM2NDg3MjQsImV4cCI6MTc2NDg1ODMyNH0.35HD2YDxOW-7lU-r_QHqaj73F5P7rNW6ELB-llZrPwU",
+            "Content-Type": "application/json",
           },
         }
       );
-      if (!response.ok) {
-        throw new Error("Errore nel recupero commenti");
-      }
+      if (!response.ok) throw new Error("Errore nel recupero commenti");
       const data = await response.json();
       this.setState({ comments: data, isLoading: false });
     } catch (error) {
@@ -46,17 +44,11 @@ class CommentArea extends Component {
   render() {
     const { comments, isLoading, isError } = this.state;
     return (
-      <div className="comment-area">
+      <div className="comment-area mt-3">
         {isLoading && <Loading />}
         {isError && <Error />}
-        <AddComment
-          asin={this.props.asin}
-          onCommentAdded={this.fetchComments}
-        />
-        <CommentsList
-          comments={comments}
-          refreshComments={this.fetchComments}
-        />
+        <AddComment asin={this.props.asin} onCommentAdded={this.fetchComments} />
+        <CommentsList comments={comments} refreshComments={this.fetchComments} />
       </div>
     );
   }

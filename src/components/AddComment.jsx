@@ -24,16 +24,15 @@ class AddComment extends Component {
         {
           method: "POST",
           headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTFmMjRkNDIzZTc0MDAwMTVmN2ZkZTIiLCJpYXQiOjE3NjM2NDg3MjQsImV4cCI6MTc2NDg1ODMyNH0.35HD2YDxOW-7lU-r_QHqaj73F5P7rNW6ELB-llZrPwU"
-,
+            "Content-Type": "application/json",
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTFmMjRkNDIzZTc0MDAwMTVmN2ZkZTIiLCJpYXQiOjE3NjM2NDg3MjQsImV4cCI6MTc2NDg1ODMyNH0.35HD2YDxOW-7lU-r_QHqaj73F5P7rNW6ELB-llZrPwU",
           },
           body: JSON.stringify(newComment),
         }
       );
       if (!response.ok) throw new Error("Errore nell’invio del commento");
       this.setState({ comment: "", rate: "1" });
-      this.props.onCommentAdded();
+      this.props.onCommentAdded(); // ricarica lista commenti
     } catch (error) {
       alert("Impossibile inviare commento.");
     }
@@ -41,7 +40,7 @@ class AddComment extends Component {
 
   render() {
     return (
-      <form className="add-comment-form" onSubmit={this.handleSubmit}>
+      <form className="add-comment-form mb-3" onSubmit={this.handleSubmit}>
         <div className="form-group">
           <label htmlFor="comment">Commento</label>
           <input
