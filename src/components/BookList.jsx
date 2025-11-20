@@ -25,7 +25,7 @@ class BookList extends Component {
         <Row className="g-2 mt-3">
           {this.props.books
             .filter((b) =>
-              b.title.toLowerCase().includes(this.state.searchQuery)
+              b.title.includes(this.state.searchQuery.toLowerCase())
             )
             .map((b) => (
               <Col xs={12} md={4} key={b.asin}>
