@@ -1,7 +1,7 @@
-import React from "react"
+import React from "react";
 
 const Error = () => {
-  return <div className="error text-danger">Si è verificato un errore.</div>
-}
+  return <div className="error text-danger">Si è verificato un errore.</div>;
+};
 
-export default Error
+export default Error;

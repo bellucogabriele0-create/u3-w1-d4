@@ -22,3 +22,13 @@ function App() {
 }
 
 export default App
+
+// fetch(
+//         "https://striveschool-api.herokuapp.com/api/put-your-endpoint-here/",
+//         {
+//           headers: {
+//             Authorization:
+//               "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTFmMWQ3NjIzZTc0MDAwMTVmN2ZkZGMiLCJpYXQiOjE3NjM2NDY4MzgsImV4cCI6MTc2NDg1NjQzOH0.YNqfLNeVoAJ1hVHqNR-I99DKFtqGCcO67AqBhii-d-M",
+//           },
+//         }
+//       );

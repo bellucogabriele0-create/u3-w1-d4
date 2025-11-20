@@ -23,7 +23,6 @@ class CommentArea extends Component {
           },
         }
       );
-
       if (!response.ok) {
         throw new Error("Errore nel recupero commenti");
       }

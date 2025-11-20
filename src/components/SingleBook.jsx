@@ -1,11 +1,11 @@
-import { Component } from 'react'
-import { Card } from 'react-bootstrap'
-import CommentArea from './CommentArea'
+import { Component } from "react";
+import { Card } from "react-bootstrap";
+import CommentArea from "./CommentArea";
 
 class SingleBook extends Component {
   state = {
     selected: false,
-  }
+  };
 
   render() {
     return (
@@ -27,4 +27,4 @@ class SingleBook extends Component {
   }
 }
 
-export default SingleBook
+export default SingleBook;

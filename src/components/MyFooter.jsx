@@ -4,6 +4,6 @@ const MyFooter = () => (
       <strong>EPICODE</strong> - Copyright {new Date().getFullYear()}
     </span>
   </footer>
-)
+);
 
-export default MyFooter
+export default MyFooter;

@@ -3,17 +3,15 @@ import React from "react";
 const SingleComment = ({ comment, refreshComments }) => {
   const handleDelete = async () => {
     try {
-      fetch(
-        "https://striveschool-api.herokuapp.com/api/put-your-endpoint-here/",
+      const response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/put-your-endpoint-here/" + comment._id,
         {
-            method: "DELETE",
           headers: {
             Authorization:
               "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTFmMWQ3NjIzZTc0MDAwMTVmN2ZkZGMiLCJpYXQiOjE3NjM2NDY4MzgsImV4cCI6MTc2NDg1NjQzOH0.YNqfLNeVoAJ1hVHqNR-I99DKFtqGCcO67AqBhii-d-M",
           },
         }
       );
-
       if (!response.ok) {
         throw new Error("Errore nella cancellazione commento");
       }

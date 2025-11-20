@@ -1,4 +1,4 @@
-import { Navbar, Nav, Container } from 'react-bootstrap'
+import { Navbar, Nav, Container } from "react-bootstrap";
 
 const MyNav = () => (
   <Navbar
@@ -19,6 +19,6 @@ const MyNav = () => (
       </Navbar.Collapse>
     </Container>
   </Navbar>
-)
+);
 
-export default MyNav
+export default MyNav;
