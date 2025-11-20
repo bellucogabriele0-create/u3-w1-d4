@@ -4,12 +4,12 @@ const SingleComment = ({ comment, refreshComments }) => {
   const handleDelete = async () => {
     try {
       const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/put-your-endpoint-here/" + comment._id,
+        "https://striveschool-api.herokuapp.com/api/put-your-endpoint-here/" +
+          comment._id,
         {
           headers: {
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTFmMWQ3NjIzZTc0MDAwMTVmN2ZkZGMiLCJpYXQiOjE3NjM2NDY4MzgsImV4cCI6MTc2NDg1NjQzOH0.YNqfLNeVoAJ1hVHqNR-I99DKFtqGCcO67AqBhii-d-M",
-          },
+ "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTFmMjRkNDIzZTc0MDAwMTVmN2ZkZTIiLCJpYXQiOjE3NjM2NDg3MjQsImV4cCI6MTc2NDg1ODMyNH0.35HD2YDxOW-7lU-r_QHqaj73F5P7rNW6ELB-llZrPwU"          },
         }
       );
       if (!response.ok) {
@@ -24,7 +24,7 @@ const SingleComment = ({ comment, refreshComments }) => {
   return (
     <li className="single-comment">
       <span>
-        <strong>{comment.rate}★</strong> — {comment.comment}
+        <strong>{comment.rate}</strong> — {comment.comment}
       </span>
       <button className="btn btn-danger btn-sm ml-2" onClick={handleDelete}>
         Delete

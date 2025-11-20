@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class AddComment extends Component {
   state = {
     comment: "",
-    rate: 1,
+    rate: "1",
   };
 
   handleChange = (e) => {
@@ -25,13 +25,14 @@ class AddComment extends Component {
           method: "POST",
           headers: {
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTFmMWQ3NjIzZTc0MDAwMTVmN2ZkZGMiLCJpYXQiOjE3NjM2NDY4MzgsImV4cCI6MTc2NDg1NjQzOH0.YNqfLNeVoAJ1hVHqNR-I99DKFtqGCcO67AqBhii-d-M",
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTFmMjRkNDIzZTc0MDAwMTVmN2ZkZTIiLCJpYXQiOjE3NjM2NDg3MjQsImV4cCI6MTc2NDg1ODMyNH0.35HD2YDxOW-7lU-r_QHqaj73F5P7rNW6ELB-llZrPwU"
+,
           },
           body: JSON.stringify(newComment),
         }
       );
       if (!response.ok) throw new Error("Errore nell’invio del commento");
-      this.setState({ comment: "", rate: 1 });
+      this.setState({ comment: "", rate: "1" });
       this.props.onCommentAdded();
     } catch (error) {
       alert("Impossibile inviare commento.");
